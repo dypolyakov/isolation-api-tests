@@ -1,32 +1,31 @@
-# Isolation API Tests
+# API-тесты с изоляцией
 
-A educational project that demonstrates a **banking system built with a microservice architecture,**
-asynchronous operation processing, and an API Gateway for external integrations.
+Обучающий проект, демонстрирующий **банковскую систему, построенную на микросервисной архитектуре**, с асинхронной обработкой операций и API Gateway для интеграции с внешними системами.
 
-The main goal of the project is to showcase:
+Основная цель проекта — продемонстрировать:
 
-- microservice-based design;
-- HTTP & gRPC APIs;
-- asynchronous processing with Kafka;
-- clean separation of domains;
-- Docker-based local infrastructure.
+- микросервисную архитектуру;
+- HTTP и gRPC API;
+- асинхронную обработку с использованием Kafka;
+- четкое разделение предметных областей (доменов);
+- локальную инфраструктуру на базе Docker.
 
-## Project Overview
+## Обзор проекта
 
-The system simulates basic banking flows such as creating and processing financial operations.
+Система моделирует базовые банковские процессы, такие как создание и обработка финансовых операций.
 
-It consists of **two core domains:**
+Она состоит из **двух основных доменов:**
 
-- Gateway Service — a single entry point for external clients.
-- Operations Service — asynchronous processing of banking operations.
+- **Gateway Service** — единая точка входа для внешних клиентов.
+- **Operations Service** — сервис асинхронной обработки банковских операций.
 
-Additional services (`users`, `cards`, `accounts`) are used as example downstream services behind the gateway.
+Дополнительные сервисы (`users`, `cards`, `accounts`) используются в качестве примеров внутренних сервисов, доступных через Gateway.
 
-## Architecture
+## Архитектура
 
-### High-Level Architecture
+### Общая архитектура
 
-![High-Level Architecture](./docs/architecture/core.png)
+![Общая архитектура](./docs/architecture/core.png)
 
 ### Gateway Service
 
@@ -36,37 +35,37 @@ Additional services (`users`, `cards`, `accounts`) are used as example downstrea
 
 ![Operations Service](./docs/architecture/operations.png)
 
-## Tech Stack
+## Используемые технологии
 
 - Python 3.12
 - FastAPI (HTTP)
 - gRPC
 - Kafka
 - PostgreSQL
-- SQLAlchemy (async)
+- SQLAlchemy (асинхронный режим)
 - Alembic
 - Docker / Docker Compose
 
-## Setup & Run
+## Установка и запуск
 
-### Prerequisites
+### Предварительные требования
 
 - Docker
 - Docker Compose
 
-### Build base image
+### Сборка базового образа
 
 ```shell
 docker build -t base-service .
 ```
 
-### Run services
+### Запуск сервисов
 
 ```shell
 docker-compose up -d
 ```
 
-## Available services
+## Доступные сервисы
 
 - Gateway HTTP: http://localhost:8001
 - Gateway gRPC: localhost:9001
